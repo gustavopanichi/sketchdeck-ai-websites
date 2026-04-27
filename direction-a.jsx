@@ -54,23 +54,23 @@ function HeroSlider() {
     e.preventDefault();
   };
 
-  // typed code — looks like a terminal session
+  // typed code — mirrors what the headline + chips reveal on the right
   const codeLines = [
-  { p: "$ ", c: <><span className="hk-c">sketchdeck</span> build --brief acme-q3.md --accent texas-sun</> },
-  { p: "» ", c: <span className="hk-mute">strategy locked · audience · ops leaders · ship friday</span> },
-  { p: "» ", c: <span className="hk-mute">brand tokens loaded · syne · inter · 1.5px rules</span> },
+  { p: "$ ", c: <><span className="hk-c">sketchdeck</span> build --brief <span className="hk-s">ai-website-services</span></> },
   { p: "", c: "" },
-  { p: "", c: <><span className="hk-k">export default function</span> <span className="hk-fn">Hero</span>() {"{"}</> },
+  { p: "", c: <><span className="hk-k">export default function</span> <span className="hk-fn">Landing</span>() {"{"}</> },
   { p: "", c: <>{"  "}<span className="hk-k">return</span> (</> },
-  { p: "", c: <>{"    "}{"<"}<span className="hk-t">Headline</span> <span className="hk-a">size</span>={"{"}<span className="hk-n">156</span>{"}"}{">"}</> },
-  { p: "", c: <>{"      "}<span className="hk-s">"Launch"</span></> },
-  { p: "", c: <>{"      "}<span className="hk-s">"marketing"</span></> },
-  { p: "", c: <>{"      "}<span className="hk-s">"sites in"</span>{" "}<span className="hk-acc">"days"</span><span className="hk-acc">.</span></> },
-  { p: "", c: <>{"    "}{"<"}/<span className="hk-t">Headline</span>{">"}</> },
+  { p: "", c: <>{"    "}{"<"}<span className="hk-t">Hero</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Headline</span>{">"}<span className="hk-s">"Launch marketing sites in </span><span className="hk-acc">days</span><span className="hk-s">."</span>{"<"}/<span className="hk-t">Headline</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Chip</span>{">"}<span className="hk-s">"Strategy-led"</span>{"<"}/<span className="hk-t">Chip</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Chip</span>{">"}<span className="hk-s">"On-brand design"</span>{"<"}/<span className="hk-t">Chip</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Chip</span>{">"}<span className="hk-s">"Accessibility included"</span>{"<"}/<span className="hk-t">Chip</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Chip</span>{">"}<span className="hk-s">"Professional QA"</span>{"<"}/<span className="hk-t">Chip</span>{">"}</> },
+  { p: "", c: <>{"      "}{"<"}<span className="hk-t">Chip</span>{">"}<span className="hk-s">"Reliable deployment"</span>{"<"}/<span className="hk-t">Chip</span>{">"}</> },
+  { p: "", c: <>{"    "}{"<"}/<span className="hk-t">Hero</span>{">"}</> },
   { p: "", c: <>{"  "}{")"}</> },
   { p: "", c: <>{"}"}</> },
-  { p: "", c: "" },
-  { p: "✓ ", c: <span className="hk-ok">strategy-led · on-brand · accessibility · QA · deployed</span> },
+  { p: "✓ ", c: <span className="hk-ok">shipped — strategy-led · on-brand · accessible · QA'd · deployed</span> },
   { p: "_", c: <span className="hk-cursor">&nbsp;</span> }];
 
 
