@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Website Services · SketchDeck (Print)</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="styles/landing.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--sd-paper); }
+  body {
+    color: var(--sd-blue-moon);
+    font-family: var(--sd-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Print artboard: full-width, no scroll containers, continuous document */
+  .print-doc {
+    width: 1320px;
+    margin: 0 auto;
+    background: var(--sd-paper);
+  }
+
+  /* Disable sticky/fixed in print so the nav doesn't repeat or float weirdly */
+  .nav { position: static !important; }
+
+  /* Avoid breaking sections awkwardly */
+  section { break-inside: avoid-page; page-break-inside: avoid; }
+  .section, .band, .final, .A-hero { break-inside: avoid-page; page-break-inside: avoid; }
+
+  /* Long sections (process timeline, portfolio) are OK to break */
+  .process-wrap, .pillars, .portfolio, .faq { break-inside: auto; page-break-inside: auto; }
+
+  /* Hide interactive-only chrome that has no meaning in print */
+  .glass__handle-bar { opacity: 0.4; }
+  .tweaks-panel, .__edit_mode_toggle { display: none !important; }
+
+  @media print {
+    @page { size: 1320px 1700px; margin: 0; }
+    html, body { background: var(--sd-paper); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .print-doc { width: 1320px; }
+    /* Force colors and gradients to print */
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    /* Drop transitions/animations */
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    /* Buttons in their resting state for print */
+    .btn::before { opacity: 0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="sections.jsx"></script>
+<script type="text/babel" src="direction-a.jsx"></script>
+
+<script type="text/babel">
+function PrintApp() {
+  return (
+    <div className="print-doc">
+      <DirectionA />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<PrintApp />);
+
+// Wait for fonts + JSX render, then auto-open the print dialog
+(async () => {
+  try { if (document.fonts && document.fonts.ready) { await document.fonts.ready; } } catch (e) {}
+  // Give Babel + React + images a moment after fonts settle
+  await new Promise(r => setTimeout(r, 800));
+  // Wait for any remaining images to load (best effort)
+  const imgs = Array.from(document.images || []);
+  await Promise.all(imgs.map(img => img.complete ? null :
+    new Promise(res => { img.onload = img.onerror = res; })
+  ));
+  await new Promise(r => setTimeout(r, 300));
+  window.print();
+})();
+</script>
+
+</body>
+</html>

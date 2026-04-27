@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/AI Website Services Landing.html" }
+  ]
+}

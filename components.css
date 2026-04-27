@@ -1,0 +1,288 @@
+/* ============================================================
+   SketchDeck Design System — Components
+   Requires tokens.css
+   ============================================================ */
+
+/* ----- Reset-ish ----- */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  font-family: var(--sd-font-body);
+  font-size: var(--sd-body-md);
+  color: var(--sd-text);
+  background: var(--sd-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   BUTTONS — pill shape, 1.5px border, uppercase Inter
+   Per guidelines: "UI elements take slightly rounded forms"
+   + BTN component in brand doc is a pill with stroke
+   ============================================================ */
+.sd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sd-space-2);
+  padding: 14px 28px;
+  min-height: 45px;
+  font-family: var(--sd-font-body);
+  font-weight: 700;
+  font-size: var(--sd-body-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  border-radius: var(--sd-radius-pill);
+  border: var(--sd-stroke-2) solid var(--sd-blue-moon);
+  background: var(--sd-blue-moon);
+  color: var(--sd-white-rabbit);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--sd-dur-base) var(--sd-ease),
+              color var(--sd-dur-base) var(--sd-ease),
+              transform var(--sd-dur-fast) var(--sd-ease);
+}
+.sd-btn:hover { transform: translateY(-1px); }
+.sd-btn:active { transform: translateY(0); }
+
+.sd-btn--outline {
+  background: transparent;
+  color: var(--sd-blue-moon);
+}
+.sd-btn--outline:hover {
+  background: var(--sd-blue-moon);
+  color: var(--sd-white-rabbit);
+}
+.sd-btn--inverse {
+  background: var(--sd-white-rabbit);
+  color: var(--sd-blue-moon);
+  border-color: var(--sd-white-rabbit);
+}
+.sd-btn--inverse-outline {
+  background: transparent;
+  color: var(--sd-white-rabbit);
+  border-color: var(--sd-white-rabbit);
+}
+.sd-btn--sm { min-height: 36px; padding: 10px 20px; font-size: 12px; }
+.sd-btn--lg { min-height: 64px; padding: 20px 40px; font-size: 16px; }
+
+/* ============================================================
+   INPUTS — slightly rounded, Inter, Blue Moon hairline
+   ============================================================ */
+.sd-input,
+.sd-textarea,
+.sd-select {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--sd-font-body);
+  font-size: var(--sd-body-md);
+  line-height: 1.2;
+  color: var(--sd-blue-moon);
+  background: var(--sd-white-rabbit);
+  border: var(--sd-stroke-1) solid var(--sd-blue-moon);
+  border-radius: var(--sd-radius-ui);
+  outline: none;
+  transition: border-color var(--sd-dur-fast) var(--sd-ease),
+              box-shadow var(--sd-dur-fast) var(--sd-ease);
+}
+.sd-input:focus,
+.sd-textarea:focus,
+.sd-select:focus {
+  border-color: var(--sd-ocean-eyes);
+  box-shadow: 0 0 0 3px rgba(0,119,228,0.15);
+}
+.sd-textarea { min-height: 120px; resize: vertical; }
+
+.sd-label {
+  display: block;
+  font-family: var(--sd-font-body);
+  font-size: var(--sd-body-sm);
+  color: var(--sd-blue-moon);
+  margin-bottom: var(--sd-space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   TAG / CHIP
+   ============================================================ */
+.sd-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--sd-radius-pill);
+  border: var(--sd-stroke-1) solid var(--sd-blue-moon);
+  background: var(--sd-white-rabbit);
+  color: var(--sd-blue-moon);
+  font-family: var(--sd-font-body);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.sd-tag--solid { background: var(--sd-blue-moon); color: var(--sd-white-rabbit); }
+
+/* ============================================================
+   CARD
+   ============================================================ */
+.sd-card {
+  background: var(--sd-white-rabbit);
+  border: var(--sd-stroke-1) solid var(--sd-blue-moon);
+  border-radius: var(--sd-radius-ui);
+  padding: var(--sd-space-6);
+}
+.sd-card--flat { border: none; background: var(--sd-paper); }
+
+/* ============================================================
+   RULES / DIVIDERS
+   ============================================================ */
+.sd-rule {
+  border: 0;
+  border-top: var(--sd-stroke-1) solid var(--sd-blue-moon);
+  margin: 0;
+}
+.sd-rule--v {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+  background: var(--sd-blue-moon);
+}
+
+/* ============================================================
+   PHOTO FRAMES — circle, oval, half-ring mask
+   ============================================================ */
+.sd-photo-circle {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--sd-ash);
+}
+.sd-photo-circle > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.sd-photo-oval {
+  aspect-ratio: 3 / 2;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--sd-ash);
+}
+.sd-photo-oval > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ============================================================
+   STICKER — shape with headline masked into it
+   ============================================================ */
+.sd-sticker-oval {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 56px;
+  border-radius: 50%;
+  background: var(--sd-white-rabbit);
+  font-family: var(--sd-font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 44px;
+  line-height: 0.9;
+  color: var(--sd-blue-moon);
+  text-align: center;
+  min-width: 280px;
+}
+.sd-sticker-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: var(--sd-radius-pill);
+  background: var(--sd-white-rabbit);
+  font-family: var(--sd-font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--sd-blue-moon);
+}
+
+/* ============================================================
+   SHAPE PRIMITIVES
+   ============================================================ */
+.sd-circle { border-radius: 50%; aspect-ratio: 1 / 1; }
+.sd-oval   { border-radius: 50%; aspect-ratio: 3 / 2; }
+.sd-pill   { border-radius: var(--sd-radius-pill); }
+
+/* Gradient backgrounds (iced only) */
+.sd-bg-grad-ice-purple  { background: var(--sd-grad-ice-purple); }
+.sd-bg-grad-ice-pink    { background: var(--sd-grad-ice-pink); }
+.sd-bg-grad-pink-yellow { background: var(--sd-grad-pink-yellow); }
+.sd-bg-grad-ice-yellow  { background: var(--sd-grad-ice-yellow); }
+
+/* Solid backgrounds */
+.sd-bg-blue-moon   { background: var(--sd-blue-moon); color: var(--sd-white-rabbit); }
+.sd-bg-white       { background: var(--sd-white-rabbit); color: var(--sd-blue-moon); }
+.sd-bg-paper       { background: var(--sd-paper); color: var(--sd-blue-moon); }
+.sd-bg-ice         { background: var(--sd-ice-ice-baby); color: var(--sd-blue-moon); }
+.sd-bg-pink        { background: var(--sd-pink-floyd); color: var(--sd-blue-moon); }
+.sd-bg-purple      { background: var(--sd-purple-rain); color: var(--sd-blue-moon); }
+.sd-bg-yellow      { background: var(--sd-yellow-sub); color: var(--sd-blue-moon); }
+.sd-bg-ocean       { background: var(--sd-ocean-eyes); color: var(--sd-white-rabbit); }
+.sd-bg-texas       { background: var(--sd-texas-sun); color: var(--sd-white-rabbit); }
+.sd-bg-brown       { background: var(--sd-brown-sugar); color: var(--sd-white-rabbit); }
+
+/* ============================================================
+   SLIDE FRAME — 1920×1080, scaled to fit viewport
+   ============================================================ */
+.sd-slide {
+  position: relative;
+  width: var(--sd-slide-w);
+  height: var(--sd-slide-h);
+  background: var(--sd-white-rabbit);
+  overflow: hidden;
+}
+
+/* Brand chrome that appears on marketing slides */
+.sd-slide-chrome-left,
+.sd-slide-chrome-right {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--sd-blue-moon);
+}
+.sd-slide-chrome-left  { left: 56px; }
+.sd-slide-chrome-right { right: 56px; }
+
+.sd-slide-meta {
+  position: absolute;
+  left: 19px;
+  bottom: 0;
+  top: 0;
+  width: 20px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--sd-font-body);
+  font-size: 14px;
+  color: var(--sd-blue-moon);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 24px;
+}
+.sd-slide-meta--right {
+  left: auto;
+  right: 19px;
+  transform: rotate(0);
+  writing-mode: vertical-rl;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 24px;
+  padding-top: 0;
+}
+
+/* Slide page number / footer */
+.sd-slide-footer {
+  position: absolute;
+  left: 90px;
+  bottom: 40px;
+  right: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-family: var(--sd-font-body);
+}

@@ -1,0 +1,16 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local agent / tool state
+.claude/
+.design-canvas.state.json
+
+# Source brief and reference imagery from the design phase — not part of the deployed site
+uploads/
+
+# Node/Vercel local state (in case anything is added later)
+node_modules/
+.vercel/
