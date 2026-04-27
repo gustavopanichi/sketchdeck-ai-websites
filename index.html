@@ -8,25 +8,12 @@
 <link rel="stylesheet" href="components.css">
 <link rel="stylesheet" href="styles/landing.css">
 <style>
-  /* host body — full bleed canvas */
-  html, body { height: 100%; margin: 0; }
-  body { background: #f0eee9; }
-
-  /* artboard inner scroll — each variation lives inside a fixed-width artboard
-     and scrolls inside it so the user can review full pages side-by-side */
-  .lp-artboard {
-    width: 100%; height: 100%;
-    overflow-y: auto; overflow-x: hidden;
-    background: var(--sd-paper);
+  html, body { margin: 0; padding: 0; background: var(--sd-paper); }
+  body {
     color: var(--sd-blue-moon);
     font-family: var(--sd-font-body);
     -webkit-font-smoothing: antialiased;
-    scrollbar-width: thin;
   }
-  .lp-artboard::-webkit-scrollbar { width: 8px; }
-  .lp-artboard::-webkit-scrollbar-thumb { background: rgba(22,22,56,0.2); border-radius: 4px; }
-  /* cap nav stickiness inside the artboard */
-  .lp-artboard .nav { position: sticky; }
 </style>
 </head>
 <body>
@@ -37,80 +24,11 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-<script type="text/babel" src="design-canvas.jsx"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
 <script type="text/babel" src="sections.jsx"></script>
 <script type="text/babel" src="direction-a.jsx"></script>
 
 <script type="text/babel">
-const { useState } = React;
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "iced": "#C0D8FF",
-  "accent": "#161638"
-}/*EDITMODE-END*/;
-
-function App() {
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-
-  // Apply tweak values to CSS variables, scoped to the artboard wrappers
-  React.useEffect(() => {
-    const r = document.documentElement;
-    r.style.setProperty('--iced', t.iced);
-    r.style.setProperty('--accent', t.accent);
-  }, [t.iced, t.accent]);
-
-  return (
-    <>
-      <DesignCanvas>
-        <DCSection
-          id="ai-website-services"
-          title="AI Website Services — Landing Page"
-          subtitle="Single full-bleed scrolling page · SketchDeck brand · scroll inside the artboard to review"
-        >
-          <DCArtboard id="dir-a" label="Editorial Builder · dark hero with animated AI build" width={1320} height={900}>
-            <div className="lp-artboard" data-screen-label="Editorial Builder">
-              <DirectionA />
-            </div>
-          </DCArtboard>
-        </DCSection>
-
-        <DCPostIt x={40} y={40}>
-          AI Website Services BD page — editorial long-scroll. Open Tweaks (top toolbar) to swap the iced backdrop or accent color.
-        </DCPostIt>
-      </DesignCanvas>
-
-      <TweaksPanel>
-        <TweakSection label="Iced backdrop" />
-        <TweakRadio
-          label="Iced hue"
-          value={t.iced}
-          options={[
-            { value: '#C0D8FF', label: 'Ice' },
-            { value: '#FFB2D5', label: 'Pink' },
-            { value: '#B8ACFF', label: 'Purple' },
-            { value: '#D8DE00', label: 'Yellow' },
-          ]}
-          onChange={(v) => setTweak('iced', v)}
-        />
-        <TweakSection label="Saturated accent" />
-        <TweakRadio
-          label="Accent"
-          value={t.accent}
-          options={[
-            { value: '#F95104', label: 'Texas' },
-            { value: '#0077E4', label: 'Ocean' },
-            { value: '#7E5735', label: 'Brown' },
-            { value: '#161638', label: 'Mono' },
-          ]}
-          onChange={(v) => setTweak('accent', v)}
-        />
-      </TweaksPanel>
-    </>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  ReactDOM.createRoot(document.getElementById('root')).render(<DirectionA />);
 </script>
 
 </body>
