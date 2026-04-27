@@ -109,7 +109,8 @@ button { font: inherit; cursor: pointer; }
 #build .offer-card__copy { padding: 28px 32px; }
 #build .offer-card__copy h3 { font-size: clamp(36px, 3.6vw, 56px); margin: 8px 0 12px; }
 #build .offer-card__copy .lede { font-size: 16px; margin-bottom: 18px; }
-#build .offer-card__visual { min-height: 300px; padding: 24px; }
+#build .offer-card__visual { min-height: 0; padding: 20px; display: grid; place-items: center; }
+#build .offer-img { max-width: 280px; max-height: 320px; }
 #build .offer-card__list { margin: 10px 0 14px; gap: 6px; font-size: 14px; }
 #build .offer-card__meta { padding-top: 12px; gap: 16px; }
 #build .offer-card__meta .v { font-size: 26px; }
