@@ -163,9 +163,9 @@ function HeroStrip() {
   return (
     <div className="A-strip A-strip--center">
       <div className="A-strip__inner">
-        <div className="item"><div className="k">Landing pages from</div><div className="v">5 days</div></div>
-        <div className="item"><div className="k">Microsites from</div><div className="v">3 weeks</div></div>
-        <div className="item"><div className="k">Pricing from</div><div className="v">$8k</div></div>
+        <div className="item"><div className="k">Landing pages from</div><div className="v">1 week</div></div>
+        <div className="item"><div className="k">Microsites from</div><div className="v">2 weeks</div></div>
+        <div className="item"><div className="k">Pricing from</div><div className="v">$4k</div></div>
         <div className="item"><div className="k">Accessibility</div><div className="v">WCAG 2.2 AA</div></div>
       </div>
     </div>);

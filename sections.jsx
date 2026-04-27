@@ -112,17 +112,31 @@ function WhatWeBuild() {
       kicker: "Offering 01",
       title: "AI Landing Pages.",
       lede: "A focused, single-page destination — built for a campaign, a product launch, or a paid-media moment.",
-      list: ["Single-page, conversion-focused", "Lightweight, fast-loading", "SEO-ready out of the box", "Custom motion and interaction", "Hosted, monitored, supported"],
-      meta: [["Pages", "1"], ["Timeline", "From 5 days"], ["From", "$8k"]],
-      best: ["Campaign launches", "Product announcements", "Paid media destinations", "Event pages"]
+      list: [
+        "1 page · Static HTML/CSS/JS, no CMS",
+        "AI-generated with senior creative direction",
+        "Responsive, mobile-first design",
+        "Basic animations and interactions",
+        "Analytics integration (GA4 or Cloudflare)",
+        "SEO fundamentals — meta, OG, semantic HTML"
+      ],
+      meta: [["Pages", "1"], ["Timeline", "1–2 weeks"], ["From", "$4k"]],
+      best: ["Campaign launches", "Product announcements", "Paid media destinations", "Event pages", "Quick-turn marketing"]
     },
     ms: {
       kicker: "Offering 02",
       title: "AI Microsites.",
-      lede: "A small, beautifully crafted marketing site — product hub, event site, or campaign world.",
-      list: ["Up to 25 pages, shared components", "Refined UX & navigation", "SEO-ready architecture", "Optional CMS for in-house edits", "Analytics + accessibility audited"],
-      meta: [["Pages", "Up to 25"], ["Timeline", "From 3 weeks"], ["From", "$24k"]],
-      best: ["Product hubs", "Event sites", "Campaign hubs", "Small marketing sites"]
+      lede: "A small, beautifully crafted marketing site — product launch, event site, or campaign world.",
+      list: [
+        "2–5 pages with shared components",
+        "Refined UX and visual systems",
+        "Responsive, mobile-first design",
+        "Lightweight interactions and animations",
+        "Analytics + SEO fundamentals (incl. sitemap)",
+        "Optional CMS for in-house edits (Astro + Sanity)"
+      ],
+      meta: [["Pages", "2–5"], ["Timeline", "2–6 weeks"], ["From", "$8k"]],
+      best: ["Small marketing sites", "Event sites", "Product launches", "Campaign hubs", "Multi-page brand experiences"]
     }
   };
   const d = data[tab];
@@ -405,12 +419,12 @@ function WhySD() {
 // ---------- FAQ ----------
 function FAQ() {
   const qs = [
-  ["How fast is fast?", "Landing pages in 5–10 working days. Microsites in 3–5 weeks. Both timelines start the day we kick off, not the day we sign."],
+  ["How fast is fast?", "Landing pages in 1–2 weeks. Microsites in 2–6 weeks. Both timelines start the day we kick off, not the day we sign."],
   ["Do you really write the code, or does AI?", "Both. Our AI workflow generates the foundation; senior designers and engineers refine type, motion, accessibility and details. AI is the tool. We are the team."],
   ["Whose brand does it follow — yours or ours?", "Yours. We brief the AI on your guidelines and design system. If you don't have one, we build a lightweight set first."],
   ["What about accessibility?", "WCAG 2.2 AA is the default — keyboard navigation, semantic markup, color contrast, focus states, screen-reader testing. Audit included."],
-  ["Where do you host?", "Vercel, Netlify, your CMS or your stack. We deploy where your team will be able to maintain it."],
-  ["Can we edit it ourselves later?", "Microsites can ship with an optional CMS (Sanity, Contentful, etc.). Landing pages are typically maintained by us."]];
+  ["Where do you host?", "Vercel and Cloudflare Pages — picked per project based on your team's preference and existing infrastructure. Both ship with custom domain, SSL, and analytics out of the box."],
+  ["Can we edit it ourselves later?", "Microsites can ship with an optional CMS (Astro + Sanity Studio) so your team can update content post-handoff. Landing pages are typically maintained by us."]];
 
   const [open, setOpen] = useState(0);
   return (
