@@ -14,3 +14,4 @@ uploads/
 # Node/Vercel local state (in case anything is added later)
 node_modules/
 .vercel/
+.vercel
