@@ -25,11 +25,12 @@ button { font: inherit; cursor: pointer; }
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: 16px 28px; min-width: 180px; height: 52px; box-sizing: border-box;
   border-radius: 999px;
-  background: var(--sd-blue-moon); color: var(--sd-white-rabbit); border: 1px solid var(--sd-blue-moon);
+  background: var(--sd-blue-moon); color: var(--sd-white-rabbit); border: none;
+  box-shadow: inset 0 0 0 1px var(--sd-blue-moon);
   font-family: var(--sd-font-small); font-size: 14px; font-weight: 500; letter-spacing: 0.02em;
   text-decoration: none; cursor: pointer; user-select: none;
   position: relative; overflow: hidden; isolation: isolate;
-  transition: transform .18s var(--sd-ease), color .25s var(--sd-ease), border-color .25s var(--sd-ease);
+  transition: color .25s var(--sd-ease), box-shadow .25s var(--sd-ease);
 }
 .btn::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -39,14 +40,14 @@ button { font: inherit; cursor: pointer; }
   opacity: 0;
   transition: opacity .25s var(--sd-ease);
 }
-.btn:hover { color: var(--sd-blue-moon); border-color: transparent; }
+.btn:hover { color: var(--sd-blue-moon); box-shadow: none; }
 .btn:hover::before { opacity: 1; animation: btnGradientShift 1.2s linear infinite; }
 @keyframes btnGradientShift {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
 /* unify all button variants to the same shell — gradient hover takes over */
-.btn--accent, .btn--outline, .btn--inverse { background: var(--sd-blue-moon); color: var(--sd-white-rabbit); border-color: var(--sd-blue-moon); }
+.btn--accent, .btn--outline, .btn--inverse { background: var(--sd-blue-moon); color: var(--sd-white-rabbit); }
 .btn--outline:hover, .btn--inverse:hover, .btn--accent:hover { color: var(--sd-blue-moon); }
 .btn--lg { /* same shell — no size override */ }
 .btn .arrow {

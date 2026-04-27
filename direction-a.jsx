@@ -111,7 +111,6 @@ function HeroSlider() {
         {/* HEADLINE LAYER — clip-revealed by slider position */}
         <div className="glass__head" style={{ clipPath: `inset(0 0 0 ${pos * 100}%)` }}>
           <div className="glass__head-inner" style={{ transform: `translateX(${(1 - pos) * -6}%)` }}>
-            <p className="glass__eyebrow">The page · rendered</p>
             <h1 className="glass__h1">
               Launch<br />
               marketing<br />
