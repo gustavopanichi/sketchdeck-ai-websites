@@ -39,19 +39,12 @@ button { font: inherit; cursor: pointer; }
   opacity: 0;
   transition: opacity .25s var(--sd-ease);
 }
-.btn:hover { transform: translateY(-2px); color: var(--sd-blue-moon); border-color: transparent; }
+.btn:hover { color: var(--sd-blue-moon); border-color: transparent; }
 .btn:hover::before { opacity: 1; animation: btnGradientShift 1.2s linear infinite; }
 @keyframes btnGradientShift {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
-  background: var(--sd-blue-moon); color: var(--sd-white-rabbit);
-  font-family: var(--sd-font-small); font-size: 14px; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  border: 1.5px solid var(--sd-blue-moon);
-  transition: transform .18s var(--sd-ease), background .18s var(--sd-ease), color .18s var(--sd-ease);
-}
-.btn:hover { transform: translateY(-2px); }
 /* unify all button variants to the same shell — gradient hover takes over */
 .btn--accent, .btn--outline, .btn--inverse { background: var(--sd-blue-moon); color: var(--sd-white-rabbit); border-color: var(--sd-blue-moon); }
 .btn--outline:hover, .btn--inverse:hover, .btn--accent:hover { color: var(--sd-blue-moon); }
@@ -60,9 +53,9 @@ button { font: inherit; cursor: pointer; }
   display: inline-flex; align-items: center; justify-content: center;
   width: 22px; height: 22px; border-radius: 999px; background: rgba(255,255,255,0.18);
   font-size: 14px;
-  transition: background .25s var(--sd-ease), color .25s var(--sd-ease);
+  transition: background .25s var(--sd-ease), color .25s var(--sd-ease), transform .25s var(--sd-ease);
 }
-.btn:hover .arrow { background: rgba(22,22,56,0.18); color: var(--sd-blue-moon); }
+.btn:hover .arrow { background: rgba(22,22,56,0.18); color: var(--sd-blue-moon); transform: translateX(3px); }
 
 /* ---------- nav ---------- */
 .nav {
@@ -107,6 +100,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 .section { padding-block: 110px; padding-inline: max(56px, calc((100vw - 1440px) / 2)); }
+.section--compact { padding-block: 85px; }
 .section--paper { background: var(--sd-paper); }
 .section--ice   { background: var(--iced); }
 .section--white { background: var(--sd-white-rabbit); }

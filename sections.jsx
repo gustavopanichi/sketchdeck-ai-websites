@@ -38,11 +38,11 @@ function PromiseBand() {
 // ---------- Why-now context (3 columns) ----------
 function WhyNow() {
   return (
-    <section className="section section--paper">
+    <section className="section section--paper section--compact" id="why-now">
       <div className="section-hd">
         <div>
           <p className="eyebrow">The shift</p>
-          <h2>Marketing teams<br />need web at the speed<br />of campaigns.</h2>
+          <h2>Marketing teams need web at the speed of campaigns.</h2>
         </div>
         <div className="shift-aside">
           <div className="shift-gif-box">
